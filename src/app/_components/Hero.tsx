@@ -7,7 +7,7 @@ import { FaArrowRight } from "react-icons/fa";
 
 export default function Hero() {
   return (
-    <section className="relative bg-[#FFADEB] pt-36 pb-20 max-md:pt-0 overflow-hidden min-h-screen max-md:h-[80vh] flex items-center">
+    <section className="relative bg-[#FFADEB] pt-36 pb-20 max-md:pt-0 overflow-hidden min-h-screen flex items-center">
       {/* Left Orange (floating effect) */}
       <motion.div
         initial={{ y: 20 }}
@@ -57,7 +57,7 @@ export default function Hero() {
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.7 }}
-          className="text-white text-[90px] max-md:text-center md:text-[180px] lg:text-[280px] font-extrabold leading-none"
+          className="text-white text-[95px] max-md:text-center md:text-[180px] lg:text-[280px] font-extrabold leading-none"
         >
           ZOOOOM
         </motion.h1>

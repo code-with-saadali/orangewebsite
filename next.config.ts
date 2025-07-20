@@ -1,8 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
- images: {
-    domains: ["ik.imagekit.io"],
+  images: {
+    domains: ['images.pexels.com', 'ik.imagekit.io'], 
   },
 };
 
