@@ -1,8 +1,9 @@
 "use client";
 import Image from "next/image";
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
+// Reusable Benefit Card
 const BenefitCard = ({
   icon,
   title,
@@ -12,7 +13,6 @@ const BenefitCard = ({
   description: string;
 }) => (
   <motion.div
-    
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6, ease: "easeOut" }}
@@ -28,6 +28,16 @@ const BenefitCard = ({
 );
 
 const BenefitsSection = () => {
+  const canRef = useRef(null);
+
+  // Scroll logic for rotating the can
+  const { scrollYProgress } = useScroll({
+    target: canRef,
+    offset: ["start end", "end start"],
+  });
+
+  const rotateCan = useTransform(scrollYProgress, [0, 1], [0, 25]);
+
   const benefits = [
     {
       icon: "🌿",
@@ -57,7 +67,7 @@ const BenefitsSection = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <div className="rounded-[180px_40px_180px_0px] border-2 border-black relative  max-w-md w-full h-[500px]">
+          <div className="rounded-[180px_40px_180px_0px] border-2 border-black relative max-w-md w-full h-[500px]">
             {/* Background Decorative Image */}
             <Image
               src="https://ik.imagekit.io/msmrd69gi/y92XI46m64S5gJOWOe6MA6Arl8M.avif?updatedAt=1753014301967"
@@ -66,19 +76,23 @@ const BenefitsSection = () => {
               className="object-cover z-0 overflow-hidden rounded-[180px_40px_180px_0px]"
             />
 
-            {/* can */}
-            <div className="relative z-50 h-full flex items-center justify-center">
+            {/* ✅ Can with Scroll Rotation */}
+            <motion.div
+              ref={canRef}
+              style={{ rotate: rotateCan }}
+              className="relative z-50 h-full flex items-center justify-center"
+            >
               <Image
                 src="https://ik.imagekit.io/msmrd69gi/yNbUcie2HCyvvKtNFvAyziYjg.avif?updatedAt=1753014260585"
                 alt="Premium Kombucha Bottle"
                 width={280}
                 height={560}
-                className="object-contain h-full w-auto drop-shadow-2xl z-50"
+                className="object-contain h-full w-auto drop-shadow-2xl z-50 -rotate-20"
                 priority
               />
-            </div>
+            </motion.div>
 
-            {/*  Top Left Icon */}
+            {/* Top Left Icon (No scroll effect here) */}
             <div className="absolute -top-20 -left-30 z-50 border-white">
               <Image
                 src="https://ik.imagekit.io/msmrd69gi/mhNj6MgIfV80SV6DGbPpLOkk.avif?updatedAt=1753014349000"
@@ -93,7 +107,7 @@ const BenefitsSection = () => {
 
         {/* Benefits Text & Cards */}
         <motion.div
-          className="w-full "
+          className="w-full"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
@@ -103,6 +117,7 @@ const BenefitsSection = () => {
             The incredible <span className="text-[#FF6316]">benefits</span> of
             our kombucha
           </h1>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:w-[500px] w-full">
             {benefits.map((benefit, index) => (
               <BenefitCard
@@ -113,9 +128,16 @@ const BenefitsSection = () => {
               />
             ))}
           </div>
-         <div className="absolute top-0 -right-56">
-           <Image src="https://ik.imagekit.io/msmrd69gi/MswwAB8XnYNDrd9o4g6ZHqC2MLw.avif?updatedAt=1753017651773" alt="" width={350} height={200}/>
-         </div>
+
+          {/* Background Shape */}
+          <div className="absolute top-0 -right-56">
+            <Image
+              src="https://ik.imagekit.io/msmrd69gi/MswwAB8XnYNDrd9o4g6ZHqC2MLw.avif?updatedAt=1753017651773"
+              alt=""
+              width={350}
+              height={200}
+            />
+          </div>
         </motion.div>
       </div>
     </section>
