@@ -18,7 +18,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
-      <div className="sticky top-0">
+      <div className="sticky top-0 max-md:relative">
         <BenefitsSection />
       </div>
       <BenefitsSection2 />

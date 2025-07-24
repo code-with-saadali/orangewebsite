@@ -57,8 +57,8 @@ const BenefitsSection = () => {
   ];
 
   return (
-    <section className="bg-[#F6EDE4] w-full py-20 px-5 lg:px-20 overflow-hidden relative">
-      <div className="flex items-center justify-between gap-40 max-lg:gap-10">
+    <section className="bg-[#F6EDE4] w-full py-20 px-5 lg:px-20 overflow-hidden relative" id="product">
+      <div className="md:flex items-center justify-between gap-40 max-lg:gap-10">
         {/* Product Image Box */}
         <motion.div
           className="relative w-full lg:w-1/2 flex justify-center"
@@ -67,7 +67,7 @@ const BenefitsSection = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <div className="rounded-[180px_40px_180px_0px] border-2 border-black relative max-w-md w-full h-[500px]">
+          <div className="rounded-[180px_40px_180px_0px] border-2 border-black relative max-w-md w-full h-[500px] max-md:h-[350px]">
             {/* Background Decorative Image */}
             <Image
               src="https://ik.imagekit.io/msmrd69gi/y92XI46m64S5gJOWOe6MA6Arl8M.avif?updatedAt=1753014301967"
@@ -87,19 +87,19 @@ const BenefitsSection = () => {
                 alt="Premium Kombucha Bottle"
                 width={280}
                 height={560}
-                className="object-contain h-full w-auto drop-shadow-2xl z-50 -rotate-20"
+                className="object-contain h-full w-auto drop-shadow-2xl z-50 -rotate-20 max-md:w-[200px]"
                 priority
               />
             </motion.div>
 
             {/* Top Left Icon (No scroll effect here) */}
-            <div className="absolute -top-20 -left-30 z-50 border-white">
+            <div className="absolute -top-20 -left-30 max-md:-left-20 z-50 border-white">
               <Image
                 src="https://ik.imagekit.io/msmrd69gi/mhNj6MgIfV80SV6DGbPpLOkk.avif?updatedAt=1753014349000"
                 alt="Organic Certified"
                 width={264}
                 height={264}
-                className="object-contain -rotate-[75deg]"
+                className="object-contain -rotate-[75deg] max-md:w-[200px]"
               />
             </div>
           </div>
@@ -113,7 +113,7 @@ const BenefitsSection = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h1 className="text-8xl uppercase font-bold">
+          <h1 className="text-4xl md:text-5xl lg:text-8xl uppercase font-bold max-md:text-center">
             The incredible <span className="text-[#FF6316]">benefits</span> of
             our kombucha
           </h1>
@@ -130,7 +130,7 @@ const BenefitsSection = () => {
           </div>
 
           {/* Background Shape */}
-          <div className="absolute top-0 -right-56">
+          <div className="absolute top-0 -right-56 max-md:hidden ">
             <Image
               src="https://ik.imagekit.io/msmrd69gi/MswwAB8XnYNDrd9o4g6ZHqC2MLw.avif?updatedAt=1753017651773"
               alt=""

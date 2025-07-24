@@ -52,12 +52,12 @@ const Product = () => {
     return (
         <div className="bg-[#FFADE6] py-20 px-5 lg:px-20 relative">
             <div className="text">
-                <h1 className="text-8xl uppercase font-bold text-center tracking-wider">
+                <h1 className="lg:text-8xl text-3xl uppercase font-bold text-center tracking-wider">
                     popular products
                 </h1>
             </div>
 
-            <div className="boxes grid grid-cols-2 lg:grid-cols-3 gap-6 py-5 mt-10">
+            <div className="boxes grid md:grid-cols-2 lg:grid-cols-3 gap-6 py-5 mt-10">
                 <ProductCard
                     bg="https://ik.imagekit.io/msmrd69gi/y92XI46m64S5gJOWOe6MA6Arl8M.avif?updatedAt=1753014301967"
                     can="https://ik.imagekit.io/msmrd69gi/3HJGCQnQOw1cO3ZK6TzNxczWNYM.avif?updatedAt=1753259668425"

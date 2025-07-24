@@ -4,7 +4,7 @@ import { FaArrowRight } from "react-icons/fa";
 
 const TryZoooomForm = () => {
   return (
-    <section className="relative bg-[#FF6400] min-h-screen flex flex-col items-center justify-center px-4 py-20">
+    <section className="relative bg-[#FF6400] min-h-screen flex flex-col items-center justify-center px-4 py-20" id="try-zooom">
       <div className="relative z-10 text-center max-w-xl w-full">
         <h1 className="text-white text-6xl md:text-8xl font-bold uppercase tracking-wide">
           Try <span className="text-[#E1F532]">Zoooom</span>

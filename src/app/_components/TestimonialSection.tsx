@@ -56,23 +56,18 @@ const TestimonialSection = () => {
 
   const nextSlide = () => {
     setDirection("right");
-    setIndex((prev) => (prev + 2) % testimonials.length);
+    setIndex((prev) => (prev + 1) % testimonials.length);
   };
 
   const prevSlide = () => {
     setDirection("left");
-    setIndex((prev) => (prev - 2 + testimonials.length) % testimonials.length);
+    setIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
   const goToSlide = (slideIndex: number) => {
-    setDirection(slideIndex > index / 2 ? "right" : "left");
-    setIndex(slideIndex * 2);
+    setDirection(slideIndex > index ? "right" : "left");
+    setIndex(slideIndex);
   };
-
-  const currentTestimonials = [
-    testimonials[index],
-    testimonials[(index + 1) % testimonials.length],
-  ];
 
   return (
     <section className="bg-[#FF6316] px-5 lg:px-20 py-20 relative overflow-hidden">
@@ -103,8 +98,67 @@ const TestimonialSection = () => {
 
       {/* Slider */}
       <div className="flex flex-col items-center relative z-10">
-        <div className="flex items-center gap-4 lg:gap-8 w-full max-w-7xl">
-          {/* Left Button */}
+        {/* Cards - Mobile (single card) */}
+        <div className="lg:hidden w-full max-w-md">
+          <TestimonialCard
+            testimonial={testimonials[index]}
+            direction={direction}
+            isAnimated
+          />
+        </div>
+
+        {/* Cards - Desktop (two cards) */}
+        <div className="hidden lg:flex items-center gap-4">
+          <TestimonialCard
+            testimonial={testimonials[index % testimonials.length]}
+            direction={direction}
+            position="left"
+          />
+          <TestimonialCard
+            testimonial={testimonials[(index + 1) % testimonials.length]}
+            direction={direction}
+            position="right"
+            isAnimated
+          />
+        </div>
+
+        {/* Navigation - Mobile (bottom arrows) */}
+        <div className="lg:hidden flex items-center justify-center gap-6 mt-8">
+          <button
+            onClick={prevSlide}
+            className="w-12 h-12 bg-[#DAFF00] hover:bg-white transition rounded-full flex justify-center items-center text-black text-xl shadow-md cursor-pointer"
+            aria-label="Previous testimonial"
+          >
+            <FaArrowLeft />
+          </button>
+          
+          {/* Dots for mobile */}
+          <div className="flex justify-center gap-3">
+            {testimonials.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goToSlide(i)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  i === index
+                    ? "bg-white scale-125"
+                    : "bg-[#DAFF00] opacity-60 hover:opacity-100"
+                }`}
+                aria-label={`Go to slide ${i + 1}`}
+              />
+            ))}
+          </div>
+          
+          <button
+            onClick={nextSlide}
+            className="w-12 h-12 bg-[#DAFF00] hover:bg-white transition rounded-full flex justify-center items-center text-black text-xl shadow-md cursor-pointer"
+            aria-label="Next testimonial"
+          >
+            <FaArrowRight />
+          </button>
+        </div>
+
+        {/* Navigation - Desktop (side arrows) */}
+        <div className="hidden lg:flex items-center justify-center gap-8 w-full max-w-7xl mt-10">
           <button
             onClick={prevSlide}
             className="w-12 h-12 bg-[#DAFF00] hover:bg-white transition rounded-full flex justify-center items-center text-black text-xl shadow-md cursor-pointer"
@@ -113,22 +167,22 @@ const TestimonialSection = () => {
             <FaArrowLeft />
           </button>
 
-          {/* Cards */}
-          <div className="flex-1 flex flex-col lg:flex-row gap-6 lg:gap-8 justify-center">
-            <TestimonialCard
-              testimonial={currentTestimonials[0]}
-              direction={direction}
-              position="left"
-            />
-            <TestimonialCard
-              testimonial={currentTestimonials[1]}
-              direction={direction}
-              position="right"
-              isAnimated
-            />
+          {/* Dots for desktop */}
+          <div className="flex justify-center gap-3">
+            {Array.from({ length: Math.ceil(testimonials.length / 2) }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goToSlide(i * 2)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  i === Math.floor(index / 2)
+                    ? "bg-white scale-125"
+                    : "bg-[#DAFF00] opacity-60 hover:opacity-100"
+                }`}
+                aria-label={`Go to slide ${i + 1}`}
+              />
+            ))}
           </div>
 
-          {/* Right Button */}
           <button
             onClick={nextSlide}
             className="w-12 h-12 bg-[#DAFF00] hover:bg-white transition rounded-full flex justify-center items-center text-black text-xl shadow-md cursor-pointer"
@@ -136,22 +190,6 @@ const TestimonialSection = () => {
           >
             <FaArrowRight />
           </button>
-        </div>
-
-        {/* Dots */}
-        <div className="flex justify-center mt-10 gap-3">
-          {Array.from({ length: Math.ceil(testimonials.length / 2) }).map((_, i) => (
-            <button
-              key={i}
-              onClick={() => goToSlide(i)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                i === Math.floor(index / 2)
-                  ? "bg-white scale-125"
-                  : "bg-[#DAFF00] opacity-60 hover:opacity-100"
-              }`}
-              aria-label={`Go to slide ${i + 1}`}
-            />
-          ))}
         </div>
       </div>
     </section>
@@ -161,7 +199,7 @@ const TestimonialSection = () => {
 interface TestimonialCardProps {
   testimonial: Testimonial;
   direction: "left" | "right";
-  position: "left" | "right";
+  position?: "left" | "right";
   isAnimated?: boolean;
 }
 
@@ -228,13 +266,13 @@ const TestimonialCard = ({
         animate="center"
         exit="exit"
         custom={direction}
-        className="w-full lg:w-auto"
+        className="w-full"
       >
         {cardContent}
       </motion.div>
     </AnimatePresence>
   ) : (
-    <div className="w-full lg:w-auto">{cardContent}</div>
+    <div className="w-full">{cardContent}</div>
   );
 };
 

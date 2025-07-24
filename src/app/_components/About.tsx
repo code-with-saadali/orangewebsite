@@ -31,9 +31,9 @@ const About = () => {
   const scaleCan = useTransform(canScroll, [0, 1], [0.8, 1]);
 
   return (
-    <div className="bg-[#FF6316] min-h-screen relative mt-15 overflow-hidden">
+    <div className="bg-[#FF6316] min-h-screen relative mt-15 overflow-hidden px-5" id="about">
       <motion.div
-        className="text text-6xl text-center text-white uppercase font-bold leading-tight py-20"
+        className="text text-3xl md:text-6xl text-center text-white uppercase font-bold leading-tight py-20"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -58,7 +58,7 @@ const About = () => {
               alt="Berries Can"
               width={950}
               height={400}
-              className="relative z-20"
+              className="relative z-20 max-md:w-full"
             />
           </motion.div>
 
@@ -72,26 +72,29 @@ const About = () => {
               alt="Orange Slice"
               width={380}
               height={80}
+              className="max-md:w-[150px]"
             />
           </motion.div>
 
           <motion.div
             ref={lemonRef}
             style={{ rotate: rotateLemon }}
-            className="absolute -top-8 -right-50 z-10" 
+            className="absolute -top-8 -right-50 max-md:right-0 z-10" 
           >
             <Image
               src="https://ik.imagekit.io/msmrd69gi/niOj84Yrf0VAZUXpG69CZUWrg.avif?updatedAt=1753009070230"
               alt="Lemon Slice"
               width={550}
               height={180}
+              className="max-md:w-full"
+
             />
           </motion.div>
         </div>
       </motion.div>
 
       <motion.div
-        className="text text-center text-7xl uppercase text-white px-10 max-lg:px-5 mt-10 relative z-40"
+        className="text text-center text-3xl md:text-[5xl] lg:text-7xl uppercase text-white lg:px-10 mt-10 relative z-40"
         initial={{ opacity: 0, y: 80 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, ease: "easeOut" }}

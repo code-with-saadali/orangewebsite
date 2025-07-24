@@ -66,12 +66,12 @@ export default function FAQSection() {
   const rotateOrange = useTransform(orangeScroll, [0, 1], [0, 30]);
 
   return (
-    <div className="bg-pink-300 relative px-5 lg:px-20 py-24 overflow-hidden">
+    <div className="bg-pink-300 relative px-5 lg:px-20 py-24 overflow-hidden" id="faq">
      {/* Right Fruit Image (Orange) */}
       <motion.div
         ref={orangeRef}
         style={{ rotate: rotateOrange }}
-        className="absolute top-10 right-5 z-20 w-[280px] h-[180px]"
+        className="absolute top-10 right-5 z-20 w-[280px] h-[180px] max-md:hidden"
       >
         <Image
           src="https://ik.imagekit.io/msmrd69gi/mtazqyqEhCuhZf2ATCWUOs43I.avif?updatedAt=1753009071381"
@@ -85,7 +85,7 @@ export default function FAQSection() {
       <motion.div
         ref={kiwiRef}
         style={{ rotate: rotateKiwi }}
-        className="absolute -left-4 top-64 z-20 w-[280px] h-[180px]"
+        className="absolute -left-4 top-64 z-20 w-[280px] h-[180px] max-md:hidden"
       >
         <Image
           src="https://ik.imagekit.io/msmrd69gi/26rDkkEPoHiNSRhg7FvTTrGP7Lg.avif?updatedAt=1753348534768"
@@ -103,14 +103,14 @@ export default function FAQSection() {
         viewport={{ once: true }}
         className="bg-indigo-800 text-white rounded-xl mb-20 relative z-10 py-5 tracking-widest px-4"
       >
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-center leading-tight uppercase">
+        <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold text-center leading-tight uppercase">
           ORDER NOW AND GET A BONUS: <br />
           <span className="text-lime-300">10% OFF</span> YOUR NEXT ORDER
         </h2>
         <div className="flex items-center justify-center my-5">
           <button className="relative flex items-center gap-1 bg-[#E1F532] px-9 py-4 border-4 border-black text-base rounded-xl font-semibold text-black cursor-pointer overflow-hidden transition-all ease-custom group">
             <FaArrowRight className="absolute w-6 fill-black z-[9] transition-all duration-700 ease-custom -left-1/4 group-hover:left-4" />
-            <span className="relative z-[1] text-3xl transition-all duration-700 ease-custom -translate-x-3 group-hover:translate-x-3">
+            <span className="relative z-[1] text-2xl md:text-3xl transition-all duration-700 ease-custom -translate-x-3 group-hover:translate-x-3">
               Buy Now
             </span>
             <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full opacity-0 transition-all duration-700 ease-custom group-hover:w-[220px] group-hover:h-[220px] group-hover:opacity-100"></span>

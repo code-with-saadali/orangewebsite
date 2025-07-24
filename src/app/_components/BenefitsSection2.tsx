@@ -27,7 +27,7 @@ const BenefitsSection2 = () => {
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 45]);
 
   return (
-    <div className="bg-[#F6EDE4] px-5 lg:px-20 py-20 relative overflow-hidden">
+    <div className="bg-[#F6EDE4] px-5 lg:px-20 py-20 relative overflow-hidden" id="product2">
       <motion.div
         custom={1}
         variants={fadeUp}
@@ -36,7 +36,7 @@ const BenefitsSection2 = () => {
         viewport={{ once: true }}
         className="text-center"
       >
-        <h1 className="text-6xl uppercase font-bold">
+        <h1 className="text-4xl md:text-6xl uppercase font-bold">
           Only <span className="text-[#FF6316]">natural</span> ingredients
         </h1>
         <p className="text-3xl uppercase py-5">
@@ -51,7 +51,7 @@ const BenefitsSection2 = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="mt-8 bg-[#E4FF1A] rounded-2xl border-3 border-black w-[27%] mx-auto"
+        className="mt-8 bg-[#E4FF1A] rounded-2xl border-3 border-black w-full lg:w-[27%] mx-auto"
       >
         <Image
           src="https://ik.imagekit.io/msmrd69gi/aVzUD616jr5O91QMe2mFT6C3ik.avif?updatedAt=1753170482705"
@@ -74,11 +74,11 @@ const BenefitsSection2 = () => {
         viewport={{ once: true }}
         className="relative z-10"
       >
-        <div className="bg-[#5541BA] px-14 py-8 max-w-6xl rounded-2xl border-3 border-black my-10">
-          <h1 className="text-5xl font-semibold text-white uppercase tracking-widest">
+        <div className="bg-[#5541BA] px-2 lg:px-14 max-md:py-4 py-8 w-full lg:max-w-6xl rounded-2xl border-3 border-black my-10">
+          <h1 className="text-xl md:text-5xl max-md:text-center font-semibold text-white uppercase tracking-widest">
             Please Note!
           </h1>
-          <p className="text-white text-3xl tracking-widest py-5">
+          <p className="text-white text-xl md:text-3xl md:tracking-widest py-5 max-md:text-center">
             Sugar added to the drink undergoes a fermentation process <br /> and
             is completely absorbed by healthy bacteria.
           </p>
@@ -90,7 +90,7 @@ const BenefitsSection2 = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
           viewport={{ once: true }}
-          className="absolute -top-40 right-10"
+          className="absolute -top-40 right-10 max-md:hidden"
         >
           <Image
             src="https://ik.imagekit.io/msmrd69gi/f2.svg?updatedAt=1753170007615"
@@ -105,7 +105,7 @@ const BenefitsSection2 = () => {
       <motion.div
         ref={rightImageRef}
         style={{ rotate }}
-        className="rightimg absolute top-0 right-0 translate-x-[50%] z-0"
+        className="rightimg absolute top-0 right-0 translate-x-[50%] z-0 max-md:hidden"
       >
         <Image
           src="https://ik.imagekit.io/msmrd69gi/iX4u7RvbCVDT1qGdF8Je1RoNM.avif?updatedAt=1753170483160"

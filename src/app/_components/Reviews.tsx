@@ -15,7 +15,7 @@ const Reviews = () => {
   }, [controls]);
 
   return (
-    <div className="relative bg-[#FEF9F2] overflow-hidden py-20 px-5 lg:px-24">
+    <div className="relative bg-[#FEF9F2] overflow-hidden py-20 px-5 lg:px-24" id="reviews">
       {/* Crazy Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <Image

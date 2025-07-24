@@ -23,14 +23,14 @@ const TryZoomSection = () => {
           viewport={{ once: true }}
           className="w-full lg:w-[50%]"
         >
-          <h1 className="text-[60px] lg:text-[110px] font-black uppercase leading-[1]">
+          <h1 className="text-[50px] max-md:text-center lg:text-[110px] font-black uppercase leading-[1]">
             Try the entire <br />
             <span className="text-white">Zoooom</span>{" "}
             <span className="text-black">Line!</span>
           </h1>
 
           {/* Text + Can */}
-          <div className="flex gap-6 items-center">
+          <div className="md:flex gap-6 items-center">
             {/* CAN with scroll‑scale */}
             <motion.div ref={canRef} style={{ scale: canScale }}>
               <Image
@@ -38,13 +38,13 @@ const TryZoomSection = () => {
                 alt="Zoom Can"
                 width={140}
                 height={300}
-                className="drop-shadow-xl"
+                className="drop-shadow-xl max-md:hidden"
               />
             </motion.div>
 
             {/* Description + Benefits */}
             <div>
-              <p className="text-xl max-w-lg">
+              <p className="text-xl w-full lg:max-w-lg">
                 Want to experience the variety of flavors and benefits of
                 kombucha? Our tasting kit is the perfect choice for those who
                 want to familiarize themselves with the Zoooom range.
@@ -86,7 +86,7 @@ const TryZoomSection = () => {
             alt="Box"
             width={840}
             height={400}
-            className="object-cover absolute top-0 -right-20"
+            className="object-cover lg:absolute top-0 -right-20 "
           />
         </div>
       </div>
