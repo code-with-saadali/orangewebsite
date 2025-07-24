@@ -10,7 +10,7 @@ const TryZoomSection = () => {
     offset: ["start end", "end start"],
   });
 
-  const canScale = useTransform(scrollYProgress, [0, 1], [2, 0.1]);
+  const canScale = useTransform(scrollYProgress, [0, 1.5], [2, 0.1]);
 
   return (
     <section className="bg-[#FFADE6] px-5 lg:px-20 py-20 relative overflow-hidden">
@@ -36,7 +36,7 @@ const TryZoomSection = () => {
               <Image
                 src="https://ik.imagekit.io/msmrd69gi/VxqxhiQqngygsby2hYbwi3XrE.avif?updatedAt=1753264943692"
                 alt="Zoom Can"
-                width={100}
+                width={140}
                 height={300}
                 className="drop-shadow-xl"
               />
