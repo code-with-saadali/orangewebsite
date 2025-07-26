@@ -68,7 +68,7 @@ const Reviews = () => {
           className="lg:w-1/2 w-full space-y-10"
         >
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#5541BA]">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#5541BA] max-md:text-center">
               GET YOUR ZOOOOM FIX!
             </h2>
             <p className="text-lg md:text-xl leading-relaxed">

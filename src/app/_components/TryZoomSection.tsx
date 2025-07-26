@@ -44,7 +44,7 @@ const TryZoomSection = () => {
 
             {/* Description + Benefits */}
             <div>
-              <p className="text-xl w-full lg:max-w-lg">
+              <p className="text-xl w-full lg:max-w-lg max-lg:pt-5 max-md:text-center">
                 Want to experience the variety of flavors and benefits of
                 kombucha? Our tasting kit is the perfect choice for those who
                 want to familiarize themselves with the Zoooom range.

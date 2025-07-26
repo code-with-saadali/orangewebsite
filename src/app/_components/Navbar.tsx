@@ -88,7 +88,7 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed inset-0 bg-[#E0FF2B] z-40 flex flex-col items-center justify-center gap-8 text-black"
+            className="fixed inset-0 bg-[#E0FF2B] z-80 flex flex-col items-center justify-center gap-8 text-black"
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
